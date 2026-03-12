@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Bulk diesel supply across South Africa. 50PPM Vopak-sourced diesel from 10,000 litres. Serving transport, mining, agriculture and construction.">
+<title>Kekeletso Solutions – Bulk Diesel Supply</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --ink:#06101A;--navy:#0B1623;--panel:#101E2E;
+  --border:rgba(245,197,24,.15);--gold:#F5C518;
+  --white:#F2EEE6;--dim:#7A93AA;--error:#E05555;--success:#3DCB82;--radius:6px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);min-height:100vh;font-family:'Barlow',sans-serif;color:var(--white);}
+
+/* NAV */
+nav{background:var(--gold);padding:13px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--ink);}
+.nav-contact{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;opacity:.75;}
+.nav-contact span{opacity:1;font-size:15px;}
+
+/* HERO */
+.hero{background:var(--navy);padding:64px 24px 56px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(245,197,24,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;position:relative;}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,13vw,88px);line-height:.92;letter-spacing:2px;color:var(--white);position:relative;}
+.hero-h1 em{color:var(--gold);font-style:normal;display:block;}
+.hero-sub{font-size:clamp(15px,3.5vw,18px);color:var(--dim);margin:18px auto 0;max-width:520px;line-height:1.6;position:relative;}
+.hero-sub strong{color:var(--white);}
+.hero-cta{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-primary{background:var(--gold);color:var(--ink);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;padding:14px 32px;border:none;border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-block;transition:background .15s;}
+.btn-primary:hover{background:#FFD340;}
+.btn-ghost{background:transparent;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;padding:14px 28px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s;}
+.btn-ghost:hover{border-color:rgba(245,197,24,.4);}
+
+/* SPECBAR */
+.specbar{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--border);background:rgba(0,0,0,.3);}
+.spec{flex:1;min-width:100px;padding:18px 10px;text-align:center;border-right:1px solid var(--border);}
+.spec:last-child{border-right:none;}
+.spec-val{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);letter-spacing:1px;line-height:1;}
+.spec-key{font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-top:4px;}
+
+/* SECTIONS */
+.section{padding:56px 24px;max-width:900px;margin:0 auto;}
+.section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;opacity:.8;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,7vw,48px);letter-spacing:1px;color:var(--white);line-height:1;margin-bottom:20px;}
+.section-body{font-size:15px;color:var(--dim);line-height:1.7;max-width:600px;}
+.section-body strong{color:var(--white);}
+.divider{border:none;border-top:1px solid var(--border);margin:0;}
+
+/* INDUSTRY GRID */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;}
+@media(max-width:500px){.ind-grid{grid-template-columns:repeat(2,1fr);}}
+.ind-card{background:var(--panel);border:1px solid var(--border);padding:20px 16px;border-radius:var(--radius);}
+.ind-icon{font-size:26px;margin-bottom:10px;}
+.ind-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:.5px;}
+.ind-vol{font-size:11px;color:var(--dim);margin-top:4px;}
+
+/* WHY GRID */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr;}}
+.why-item{display:flex;gap:14px;align-items:flex-start;}
+.why-icon{width:38px;height:38px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.2);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.why-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--white);}
+.why-desc{font-size:13px;color:var(--dim);margin-top:2px;line-height:1.5;}
+
+/* AGENTS */
+.agents-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+@media(max-width:480px){.agents-grid{grid-template-columns:1fr;}}
+.agent-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;}
+.agent-region{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.7;line-height:1.6;}
+.agent-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--white);margin-bottom:6px;}
+.agent-phone{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--gold);text-decoration:none;margin-bottom:4px;}
+.agent-email{font-size:12px;color:var(--dim);}
+.agent-wa{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 16px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);border-radius:var(--radius);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:#25D366;text-decoration:none;letter-spacing:.5px;transition:background .15s;}
+.agent-wa:hover{background:rgba(37,211,102,.2);}
+
+/* FORM SECTION */
+.form-section{background:var(--navy);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 24px;}
+.form-inner{max-width:720px;margin:0 auto;}
+.form-header{text-align:center;margin-bottom:36px;}
+
+/* CARDS */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;}
+.card-head{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.2);}
+.card-step{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--ink);background:var(--gold);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;color:var(--white);}
+.card-body{padding:20px;}
+
+/* FIELDS */
+.row{display:grid;gap:14px;margin-bottom:14px;}
+.row.two{grid-template-columns:1fr 1fr;}
+@media(max-width:500px){.row.two{grid-template-columns:1fr;}}
+.field label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.field label span{color:var(--error);}
+.field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(245,197,24,.18);border-radius:var(--radius);padding:12px 14px;font-family:'Barlow',sans-serif;font-size:15px;color:var(--white);outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(245,197,24,.55);background:rgba(245,197,24,.04);}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.18);}
+.field select option{background:#0B1623;color:var(--white);}
+.field textarea{resize:vertical;min-height:80px;}
+.field .hint{font-size:11px;color:var(--dim);margin-top:4px;}
+.field.error input,.field.error select,.field.error textarea{border-color:var(--error);}
+.field .err-msg{font-size:11px;color:var(--error);margin-top:4px;display:none;}
+.field.error .err-msg{display:block;}
+
+/* PROVINCE */
+.province-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+@media(max-width:400px){.province-grid{grid-template-columns:repeat(2,1fr);}}
+.prov-btn{padding:12px 8px;background:rgba(255,255,255,.04);border:1px solid rgba(245,197,24,.15);border-radius:var(--radius);cursor:pointer;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--dim);letter-spacing:.5px;transition:all .15s;user-select:none;}
+.prov-btn:hover{border-color:rgba(245,197,24,.4);color:var(--white);}
+.prov-btn.selected{background:rgba(245,197,24,.12);border-color:var(--gold);color:var(--gold);}
+.prov-btn .prov-name{display:block;font-size:12px;}
+.prov-btn .prov-agent{display:block;font-size:9px;letter-spacing:1px;text-transform:uppercase;margin-top:2px;opacity:.7;}
+.agent-notice{margin-top:12px;padding:12px 16px;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.25);border-radius:var(--radius);display:none;}
+.agent-notice.show{display:flex;gap:12px;align-items:center;}
+.agent-notice-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--white);}
+.agent-notice-detail{font-size:12px;color:var(--gold);margin-top:2px;}
+#prov-err{margin-top:6px;font-size:11px;color:var(--error);display:none;}
+
+/* SUBMIT */
+.submit-btn{width:100%;padding:18px;background:var(--gold);border:none;border-radius:var(--radius);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--ink);cursor:pointer;transition:background .15s,transform .1s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.submit-btn:hover{background:#FFD340;}
+.submit-btn:active{transform:scale(.99);}
+
+/* SUCCESS */
+.success-card{display:none;background:var(--panel);border:1px solid rgba(61,203,130,.3);border-radius:var(--radius);padding:48px 24px;text-align:center;}
+.success-card.show{display:block;}
+.success-icon{font-size:52px;margin-bottom:16px;}
+.success-title{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:2px;color:var(--success);margin-bottom:10px;}
+.success-text{font-size:15px;color:var(--dim);line-height:1.7;}
+.success-text strong{color:var(--white);}
+.success-reset{margin-top:20px;padding:12px 28px;background:transparent;border:1px solid var(--border);color:var(--dim);border-radius:var(--radius);cursor:pointer;font-family:'Barlow',sans-serif;font-size:13px;}
+
+/* TRUST */
+.trust-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;padding:16px 0 4px;}
+.trust-item{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:6px;}
+.trust-item::before{content:'✓';color:var(--gold);font-weight:700;}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid var(--border);padding:40px 24px;text-align:center;}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:var(--white);margin-bottom:6px;}
+.footer-tagline{font-size:11px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+.footer-contact{font-size:15px;color:var(--gold);margin-bottom:4px;font-weight:600;}
+.footer-provinces{font-size:11px;color:var(--dim);margin-top:16px;letter-spacing:1px;}
+.footer-legal{font-size:10px;color:rgba(122,147,170,.35);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KEKELETSO SOLUTIONS</div>
+  <a class="nav-contact" href="tel:0744885562">📞 <span>074 488 5562</span></a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Bulk Fuel Procurement · South Africa</div>
+  <h1 class="hero-h1">BULK DIESEL<em>DELIVERED.</em></h1>
+  <p class="hero-sub"><strong>50PPM clean-burning diesel</strong> from 10,000 litres. Vopak-sourced, engine-safe, delivered to your site across 6 provinces.</p>
+  <div class="hero-cta">
+    <a class="btn-primary" href="#order">REQUEST A QUOTE</a>
+    <a class="btn-ghost" href="tel:0744885562">📞 Call Us Now</a>
+  </div>
+</div>
+
+<div class="specbar">
+  <div class="spec"><div class="spec-val">50PPM</div><div class="spec-key">Diesel Grade</div></div>
+  <div class="spec"><div class="spec-val">10,000L</div><div class="spec-key">Min. Order</div></div>
+  <div class="spec"><div class="spec-val">825+</div><div class="spec-key">kg/m³</div></div>
+  <div class="spec"><div class="spec-val">VOPAK</div><div class="spec-key">Depot Source</div></div>
+  <div class="spec"><div class="spec-val">6</div><div class="spec-key">Provinces</div></div>
+</div>
+
+<div class="section">
+  <div class="section-label">Who We Are</div>
+  <h2 class="section-title">BULK DIESEL PROCUREMENT NETWORK</h2>
+  <p class="section-body">Kekeletso Solutions connects bulk diesel buyers with <strong>verified wholesale suppliers</strong> across South Africa. We source exclusively from <strong>Vopak certified depots</strong> — guaranteeing unblended, engine-safe 50PPM diesel delivered directly to your site. Whether you run a fleet, a mine, a farm or a construction site, we provide <strong>competitive pricing, reliable supply</strong> and flexible payment terms.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section" style="padding-top:48px;">
+  <div class="section-label">Industries We Serve</div>
+  <h2 class="section-title">YOUR SECTOR, OUR SUPPLY.</h2>
+  <div class="ind-grid">
+    <div class="ind-card"><div class="ind-icon">🚛</div><div class="ind-name">Transport &amp; Logistics</div><div class="ind-vol">Fleets · 10,000L+</div></div>
+    <div class="ind-card"><div class="ind-icon">⛏️</div><div class="ind-name">Mining Operations</div><div class="ind-vol">Heavy machinery · 50,000L+</div></div>
+    <div class="ind-card"><div class="ind-icon">🏗️</div><div class="ind-name">Construction</div><div class="ind-vol">Sites &amp; contractors</div></div>
+    <div class="ind-card"><div class="ind-icon">🌾</div><div class="ind-name">Agriculture &amp; Farms</div><div class="ind-vol">Seasonal &amp; recurring</div></div>
+    <div class="ind-card"><div class="ind-icon">⚡</div><div class="ind-name">Generators &amp; Power</div><div class="ind-vol">Backup &amp; continuous</div></div>
+    <div class="ind-card"><div class="ind-icon">🏭</div><div class="ind-name">Manufacturing</div><div class="ind-vol">Facilities &amp; plants</div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" style="padding-top:48px;">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">QUALITY YOU CAN COUNT ON.</h2>
+  <div class="why-grid">
+    <div class="why-item"><div class="why-icon">⛽</div><div><div class="why-title">Vopak Depot Sourced</div><div class="why-desc">Not blended. Not compromised. Sourced directly from certified Vopak terminals.</div></div></div>
+    <div class="why-item"><div class="why-icon">💰</div><div><div class="why-title">Competitive Wholesale Pricing</div><div class="why-desc">Bulk procurement means better prices than retail. We pass the savings to you.</div></div></div>
+    <div class="why-item"><div class="why-icon">🔒</div><div><div class="why-title">Engine-Safe 50PPM Grade</div><div class="why-desc">Protects modern diesel engines, turbochargers and fuel injection systems.</div></div></div>
+    <div class="why-item"><div class="why-icon">💳</div><div><div class="why-title">Flexible Payment Terms</div><div class="why-desc">Cash on delivery or approved monthly accounts for qualifying businesses.</div></div></div>
+    <div class="why-item"><div class="why-icon">🚚</div><div><div class="why-title">Nationwide Delivery</div><div class="why-desc">Gauteng, Mpumalanga, Free State, North West, KZN and Eastern Cape.</div></div></div>
+    <div class="why-item"><div class="why-icon">📞</div><div><div class="why-title">Direct Agent Support</div><div class="why-desc">Speak directly to your regional agent. Fast response, no call centres.</div></div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" style="padding-top:48px;">
+  <div class="section-label">Your Regional Agents</div>
+  <h2 class="section-title">SPEAK TO YOUR LOCAL AGENT.</h2>
+  <div class="agents-grid">
+    <div class="agent-card">
+      <div class="agent-region">Gauteng · Mpumalanga · Free State · North West</div>
+      <div class="agent-name">KATLEHO MATIMA</div>
+      <a class="agent-phone" href="tel:0744885562">📞 074 488 5562</a>
+      <div class="agent-email">matimakatleho1@gmail.com</div>
+      <a class="agent-wa" href="https://wa.me/27744885562?text=Hi%20Katleho%2C%20I%20need%20a%20bulk%20diesel%20quote." target="_blank">💬 WhatsApp Katleho</a>
+    </div>
+    <div class="agent-card">
+      <div class="agent-region">KwaZulu-Natal · Eastern Cape</div>
+      <div class="agent-name">MBUYISELO</div>
+      <a class="agent-phone" href="tel:0839798578">📞 083 979 8578</a>
+      <div class="agent-email">Available via WhatsApp</div>
+      <a class="agent-wa" href="https://wa.me/27839798578?text=Hi%20Mbuyiselo%2C%20I%20need%20a%20bulk%20diesel%20quote." target="_blank">💬 WhatsApp Mbuyiselo</a>
+    </div>
+  </div>
+</div>
+
+<div class="form-section" id="order">
+  <div class="form-inner">
+    <div class="form-header">
+      <div class="section-label" style="text-align:center;">Place Your Order</div>
+      <h2 class="section-title" style="text-align:center;font-size:clamp(32px,7vw,52px);">REQUEST A QUOTE</h2>
+      <p style="font-size:14px;color:var(--dim);margin-top:8px;">Fill in your details and your agent will respond with a competitive quote. <strong style="color:var(--white);">Minimum 10,000 litres.</strong></p>
+    </div>
+
+    <div id="form-area">
+      <div class="card">
+        <div class="card-head"><div class="card-step">1</div><div class="card-title">YOUR BUSINESS</div></div>
+        <div class="card-body">
+          <div class="row two">
+            <div class="field" id="f-company"><label>Company Name <span>*</span></label><input type="text" id="company" placeholder="e.g. Matima Transport (Pty) Ltd" autocomplete="organization"><div class="err-msg">Please enter your company name</div></div>
+            <div class="field" id="f-contact"><label>Contact Person <span>*</span></label><input type="text" id="contact" placeholder="Your full name" autocomplete="name"><div class="err-msg">Please enter a contact name</div></div>
+          </div>
+          <div class="row two">
+            <div class="field" id="f-phone"><label>Phone / WhatsApp <span>*</span></label><input type="tel" id="phone" placeholder="e.g. 074 488 5562" autocomplete="tel"><div class="err-msg">Please enter a valid phone number</div></div>
+            <div class="field"><label>Industry / Sector</label><select id="industry"><option value="">— Select —</option><option>Transport &amp; Logistics</option><option>Mining</option><option>Construction</option><option>Agriculture &amp; Farming</option><option>Generators &amp; Power</option><option>Manufacturing</option><option>Other</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-step">2</div><div class="card-title">YOUR ORDER</div></div>
+        <div class="card-body">
+          <div class="row two">
+            <div class="field" id="f-volume"><label>Volume Required (Litres) <span>*</span></label><input type="number" id="volume" placeholder="Min. 10,000" min="10000" step="500"><div class="hint">Minimum order is 10,000 litres</div><div class="err-msg">Minimum order is 10,000 litres</div></div>
+            <div class="field"><label>Order Frequency</label><select id="frequency"><option value="">— How often? —</option><option>Once-off</option><option>Weekly</option><option>Every 2 weeks</option><option>Monthly</option><option>As needed</option></select></div>
+          </div>
+          <div class="row"><div class="field" id="f-address"><label>Delivery Address <span>*</span></label><input type="text" id="address" placeholder="Full street address, town, province" autocomplete="street-address"><div class="err-msg">Please enter a delivery address</div></div></div>
+          <div class="row two">
+            <div class="field"><label>Storage Tank On-Site?</label><select id="tank"><option value="">— Select —</option><option>Yes — on-site tank</option><option>No — need tanker delivery</option><option>Not sure</option></select></div>
+            <div class="field"><label>Tank Capacity (Litres)</label><input type="number" id="tank-cap" placeholder="e.g. 20000" min="0"></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label>Preferred Delivery Date</label><input type="date" id="del-date"></div>
+            <div class="field"><label>Payment Preference</label><select id="payment"><option value="">— Select —</option><option>Cash on Delivery (COD)</option><option>EFT before delivery</option><option>Monthly account</option><option>Flexible / to discuss</option></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div class="card-step">3</div><div class="card-title">SELECT YOUR PROVINCE</div></div>
+        <div class="card-body">
+          <div class="province-grid">
+            <div class="prov-btn" data-prov="Gauteng" data-agent="Katleho" onclick="selectProvince(this)"><span class="prov-name">Gauteng</span><span class="prov-agent">→ Katleho</span></div>
+            <div class="prov-btn" data-prov="Mpumalanga" data-agent="Katleho" onclick="selectProvince(this)"><span class="prov-name">Mpumalanga</span><span class="prov-agent">→ Katleho</span></div>
+            <div class="prov-btn" data-prov="Free State" data-agent="Katleho" onclick="selectProvince(this)"><span class="prov-name">Free State</span><span class="prov-agent">→ Katleho</span></div>
+            <div class="prov-btn" data-prov="North West" data-agent="Katleho" onclick="selectProvince(this)"><span class="prov-name">North West</span><span class="prov-agent">→ Katleho</span></div>
+            <div class="prov-btn" data-prov="KwaZulu-Natal" data-agent="Mbuyiselo" onclick="selectProvince(this)"><span class="prov-name">KwaZulu-Natal</span><span class="prov-agent">→ Mbuyiselo</span></div>
+            <div class="prov-btn" data-prov="Eastern Cape" data-agent="Mbuyiselo" onclick="selectProvince(this)"><span class="prov-name">Eastern Cape</span><span class="prov-agent">→ Mbuyiselo</span></div>
+          </div>
+          <div id="prov-err">Please select your province</div>
+          <div class="agent-notice" id="agent-notice">
+            <div style="font-size:22px;flex-shrink:0;" id="agent-icon">📞</div>
+            <div><div class="agent-notice-name" id="agent-name-show">—</div><div class="agent-notice-detail" id="agent-detail-show">—</div></div>
+          </div>
+          <div class="field" style="margin-top:16px;"><label>Additional Notes</label><textarea id="notes" placeholder="Special requirements, site access, current supplier, anything else..."></textarea></div>
+          <button class="submit-btn" onclick="submitOrder()">📲 SEND MY ORDER VIA WHATSAPP</button>
+          <div class="trust-row">
+            <div class="trust-item">No commitment required</div>
+            <div class="trust-item">Fast response guaranteed</div>
+            <div class="trust-item">Competitive quote provided</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-card" id="success-card">
+      <div class="success-icon">✅</div>
+      <div class="success-title">ORDER SENT!</div>
+      <div class="success-text">Your order has been sent via WhatsApp to <strong id="sent-to-name">your agent</strong>.<br><br>They will contact you shortly with a competitive quote.<br><strong>Thank you for choosing Kekeletso Solutions.</strong></div>
+      <button class="success-reset" onclick="resetForm()">← Submit Another Order</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">KEKELETSO SOLUTIONS</div>
+  <div class="footer-tagline">Bulk Fuel Procurement Network</div>
+  <div class="footer-contact">📞 074 488 5562 &nbsp;·&nbsp; 083 979 8578</div>
+  <div class="footer-contact" style="font-size:13px;color:var(--dim);font-weight:400;">matimakatleho1@gmail.com</div>
+  <div class="footer-provinces">Gauteng · Mpumalanga · Free State · North West · KwaZulu-Natal · Eastern Cape</div>
+  <div class="footer-legal">© 2025 Kekeletso Solutions · Licensed Bulk Fuel Procurement</div>
+</footer>
+
+<script>
+const agents={
+  'Katleho':{name:'Katleho Matima',phone:'27744885562',detail:'074 488 5562 · Gauteng, Mpumalanga, Free State, North West',icon:'🟡'},
+  'Mbuyiselo':{name:'Mbuyiselo',phone:'27839798578',detail:'083 979 8578 · KwaZulu-Natal, Eastern Cape',icon:'🟢'}
+};
+let selectedProvince=null,selectedAgent=null;
+
+function selectProvince(el){
+  document.querySelectorAll('.prov-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedProvince=el.dataset.prov;
+  selectedAgent=el.dataset.agent;
+  const a=agents[selectedAgent];
+  document.getElementById('agent-icon').textContent=a.icon;
+  document.getElementById('agent-name-show').textContent=a.name;
+  document.getElementById('agent-detail-show').textContent=a.detail;
+  document.getElementById('agent-notice').classList.add('show');
+  document.getElementById('prov-err').style.display='none';
+}
+
+function val(id){return document.getElementById(id).value.trim();}
+function setError(id,show){document.getElementById(id).classList[show?'add':'remove']('error');}
+
+function submitOrder(){
+  let ok=true;
+  if(!val('company')){setError('f-company',true);ok=false;}else setError('f-company',false);
+  if(!val('contact')){setError('f-contact',true);ok=false;}else setError('f-contact',false);
+  const phone=val('phone');
+  if(!phone||phone.replace(/\D/g,'').length<9){setError('f-phone',true);ok=false;}else setError('f-phone',false);
+  const vol=parseFloat(document.getElementById('volume').value);
+  if(!vol||vol<10000){setError('f-volume',true);ok=false;}else setError('f-volume',false);
+  if(!val('address')){setError('f-address',true);ok=false;}else setError('f-address',false);
+  if(!selectedProvince){document.getElementById('prov-err').style.display='block';ok=false;}
+  if(!ok){const el=document.querySelector('.field.error')||document.getElementById('prov-err');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});return;}
+
+  const a=agents[selectedAgent];
+  const volF=Number(document.getElementById('volume').value).toLocaleString('en-ZA');
+  const msg=`🛢️ *NEW DIESEL ORDER REQUEST*\n📋 Kekeletso Solutions\n\n*── BUSINESS ──*\n🏢 Company: ${val('company')}\n👤 Contact: ${val('contact')}\n📱 Phone: ${phone}\n🏭 Industry: ${val('industry')||'Not specified'}\n\n*── ORDER ──*\n⛽ Volume: ${volF} litres\n📅 Frequency: ${val('frequency')||'Not specified'}\n📍 Delivery: ${val('address')}\n🗓️ Date: ${val('del-date')||'Flexible'}\n💳 Payment: ${val('payment')||'To discuss'}\n\n*── SITE ──*\n🏗️ Tank: ${val('tank')||'Not specified'}\n📏 Capacity: ${val('tank-cap')?Number(val('tank-cap')).toLocaleString('en-ZA')+' L':'Not specified'}\n📝 Notes: ${val('notes')||'None'}\n\n*── PRODUCT ──*\nGrade: 50PPM · Vopak · Province: ${selectedProvince}\n\n_Sent via Kekeletso Solutions_`;
+
+  document.getElementById('sent-to-name').textContent=a.name;
+  document.getElementById('form-area').style.display='none';
+  document.getElementById('success-card').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>{window.open(`https://wa.me/${a.phone}?text=${encodeURIComponent(msg)}`,'_blank');},400);
+}
+
+function resetForm(){
+  document.getElementById('form-area').style.display='block';
+  document.getElementById('success-card').classList.remove('show');
+  ['company','contact','phone','industry','volume','frequency','address','tank','tank-cap','del-date','payment','notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.querySelectorAll('.prov-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('agent-notice').classList.remove('show');
+  selectedProvince=null;selectedAgent=null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
